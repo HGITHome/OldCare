@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="Old" table="old">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write" />
+		<id name="id" type="integer" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="username" column="username" type="string"
+			not-null="true" length="10" />
+		<property name="gender" column="gender" type="integer"
+			not-null="true" length="4" />
+		<property name="birthday" column="birthday" type="date"
+			not-null="true" />
+		<property name="diploma" column="diploma" type="string"
+			not-null="true" length="10" />
+		<property name="religion" column="religion" type="integer"
+			not-null="true" length="4" />
+		<property name="marry_status" column="marry_status" type="string"
+			not-null="true" length="10" />
+		<property name="living" column="living" type="string"
+			not-null="true" length="50" />
+		<property name="payways" column="pay_way" type="string"
+			not-null="false" length="50" />
+		<property name="pay_others" column="pay_others" type="string"
+			not-null="false" length="100" />
+		<property name="income" column="income" type="integer"
+			not-null="true" length="11" />
+		<property name="income_ways" column="income_way" type="string"
+			not-null="false" length="50" />
+		<property name="income_others" column="income_others" type="string"
+			not-null="false" length="100" />
+		<property name="oafish" column="oafish" type="string"
+			not-null="true" length="10" />
+		<property name="insantity" column="insantity" type="string"
+			not-null="false" length="50" />
+		<property name="insantity_others" column="insanity_others"
+			type="string" not-null="false" length="100" />
+		<property name="accident" column="accident" type="string"
+			not-null="false" length="50" />
+		<property name="accident_others" column="accident_others"
+			type="string" not-null="false" length="100" />
+		<property name="illness" column="illness" type="string"
+			not-null="false" length="50" />
+
+		<property name="illness_others" column="illness_others" type="string"
+			not-null="false" length="100" />
+		<property name="photoUrl" column="imgPath" type="string"
+			not-null="false" length="200" />
+		<property name="miniUrl" column="miniImg" type="string"
+			not-null="false" length="200" />
+			
+		<property name="recordCode" column="recordCode" type="string"
+			not-null="false" length="20" />
+			
+		<property name="infoCode" column="infoCode" type="string"
+			not-null="false" length="20" />
+ 
+        <property name="checkTime" column="checkTime" type="string"
+			not-null="false" length="20" />
+		<many-to-one name="town" column="town_id"></many-to-one>
+
+		<!-- <set name="records" cascade="all" inverse="true">
+			<key column="old_id"></key>
+			<one-to-many class="Record" />
+		</set> -->
+
+		<bag name="records" order-by="id desc" inverse="true">
+			<key column="old_id" />
+			<one-to-many class="Record" />
+		</bag>
+
+	</class>
+</hibernate-mapping>

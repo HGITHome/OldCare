@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-lazy-init="true">
+	<!-- 国际化和'热'加载文件(不用重启应用). 
+	通过spring的ReloadableResourceBundleMessageSource 来实现属性文件的动态加载，这里动态加载国际化的文件
+	-->
+	<bean id="tplMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="0"/>
+		<property name="basenames">
+			<list>
+				<value>/WEB-INF/languages/jeecms_tpl/messages</value>
+			</list>
+		</property>
+	</bean>
+	<!--标签-->
+	
+	<!--后台权限标签,设置自定义标签-->
+	<bean id="cms_perm" class="com.dgut.main.web.PermistionDirective"/>
+	
+	<!--SERVICE-->
+		<bean id="adminMng" class="com.dgut.main.manager.main.impl.AdminMngImpl"/>
+		<bean id="adminLogMng" class="com.dgut.main.manager.main.impl.AdminLogMngImpl"/>
+		<bean id="roleMng" class="com.dgut.main.manager.main.impl.RoleMngImpl"/>
+		<bean id="adminAuthenMng" class="com.dgut.main.manager.main.impl.AuthenticationMngImpl"/>
+		
+		
+		<bean id="firstTypeMng" class="com.dgut.main.manager.main.impl.FirstTypeMngImpl"/>
+		<bean id="oldMng" class="com.dgut.main.manager.main.impl.OldMngImpl"/>
+		<bean id="cityMng" class="com.dgut.main.manager.main.impl.CityMngImpl"/>
+		<bean id="townMng" class="com.dgut.main.manager.main.impl.TownMngImpl"/>
+		<bean id="recordMng" class="com.dgut.main.manager.main.impl.RecordMngImpl"/>
+		<bean id="memberMng" class="com.dgut.member.manager.impl.MemberMngImpl"/>
+		<bean id="memberLogMng" class="com.dgut.member.manager.impl.MemberLogMngImpl"/>
+		<bean id="memberAuthenMng" class="com.dgut.member.manager.impl.MemberAuthenticationMngImpl"/>
+		
+		<bean id="addRecordItem" class="com.dgut.main.manager.main.impl.AddRecordItemImpl"/>
+		<bean id="assesItemMng" class="com.dgut.main.manager.main.impl.AssesItemMngImpl"/>
+		<bean id="assesTypeMng" class="com.dgut.main.manager.main.impl.AssesTypeMngImpl"/>
+		<bean id="assesCategoryMng" class="com.dgut.main.manager.main.impl.AssesCategoryMngImpl"/>
+		<bean id="summaryMng" class="com.dgut.main.manager.main.impl.SummaryMngImpl"/>
+		<bean id="jxDataBackMng" class="com.dgut.main.manager.assist.impl.JXDataBackMngImpl"/>
+		
+	<!--DAO-->
+	<bean id="adminDao" class="com.dgut.main.dao.impl.AdminDaoImpl"/>
+	<bean id="adminLogDao" class="com.dgut.main.dao.impl.AdminLogDaoImpl"/>
+	<bean id="roleDao" class="com.dgut.main.dao.impl.RoleDaoImpl"/>
+	<bean id="adminAuthenDao" class="com.dgut.main.dao.impl.AuthenticationDaoImpl"/>
+	
+	
+	<bean id="firstTypeDao" class="com.dgut.main.dao.impl.FirstTypeDaoImpl"/>
+	<bean id="oldDao" class="com.dgut.main.dao.impl.OldDaoImpl"/>
+	<bean id="recordDao" class="com.dgut.main.dao.impl.RecordDaoImpl"/>
+	<bean id="cityDao" class="com.dgut.main.dao.impl.CityDaoImpl"/>
+	<bean id="townDao" class="com.dgut.main.dao.impl.TownDaoImpl"/>
+	
+	<bean id="memberDao" class="com.dgut.member.dao.impl.MemberDaoImpl"/>
+	<bean id="memberLogDao" class="com.dgut.member.dao.impl.MemberLogDaoImpl"/>
+	<bean id="memberAuthenDao" class="com.dgut.member.dao.impl.MemberAuthenticationDaoImpl"/>
+	
+	<bean id="assesItemDao" class="com.dgut.main.dao.impl.AssesItemDaoImpl"/>
+	<bean id="assesTypeDao" class="com.dgut.main.dao.impl.AssesTypeDaoImpl"/>
+	<bean id="assesCategoryDao" class="com.dgut.main.dao.impl.AssesCategoryDaoImpl"/>
+	<bean id="summaryDao" class="com.dgut.main.dao.impl.SummaryDaoImpl"/>
+	<bean id="addRecordItemDao" class="com.dgut.main.dao.impl.AddRecordItemDaoImpl"/>
+	
+	<bean id="jxDataBackDao" class="com.dgut.main.dao.assist.impl.JXDataBackDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+</beans>

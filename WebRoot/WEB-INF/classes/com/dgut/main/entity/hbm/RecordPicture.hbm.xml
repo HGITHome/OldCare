@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="RecordPicture" table="record_photo">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="id"><generator class="identity"/></id>
+		<many-to-one name="record" column="record_id" class="Record"></many-to-one>
+		<property name="imgPath" column="photoUrl" type="string" not-null="true" length="200"/>
+		<property name="miniRecordUrl" column="miniUrl" type="string" not-null="false" length="200"/>
+	</class>
+</hibernate-mapping>

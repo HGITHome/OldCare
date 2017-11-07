@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.5.5
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8"/>
+    <title>关爱通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <#include "/admin_sys/head.html"/>
+</head>
+<!-- END HEAD -->
+
+<body
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
+<!-- BEGIN HEADER -->
+<#include "/admin_sys/top.html"/>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"></div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <#assign tb_12=true />
+    <#assign tb_12_ul=true  />
+    <#assign tb_12_li_3=true />
+    <#assign tb_12_arrow=true />
+    <#include "/admin_sys/left.html"/>
+    <!-- END SIDEBAR -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="page-bar">
+                <!-- BEGIN PAGE BAR -->
+                <ul class="page-breadcrumb">
+                    <li>
+                        <a href="index.html">日常记录</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>录入</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- END PAGE BAR -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN VALIDATION STATES-->
+                    <div class="portlet light portlet-fit portlet-form bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class=" icon-layers font-green"></i>
+                                <span class="caption-subject font-green sbold uppercase">记录录入</span>
+                            </div>
+                            <div class="actions">
+                            	
+									<a class="dt-button buttons-print btn green  btn-outline"
+											href="v_list.do" tabindex="0"><span>返回</span> </a>
+								</div>
+
+                        </div>
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="o_upload.do" enctype="multipart/form-data" id="form_save"
+                                  class="form-horizontal form-row-seperated" method="post">
+                                <div class="form-body">
+                                    <div class="alert alert-danger display-hide">
+                                        <button class="close" data-close="alert"></button>
+                                        	请仔细检查下面填写的信息！
+                                    </div>
+                                    <#if errors??>
+                                        <div class="alert alert-danger" role="alert">
+                                            <button class="close" data-close="alert"></button>
+                                            <#list errors as error>
+                                                ${error}<br/>
+                                            </#list>
+                                        </div>
+
+                                    </#if>
+                                
+                                <div class="form-group form-md-line-input has-success">
+                                    <label class="col-md-3 control-label" for="form_control_1">请选择老人</label>
+
+                                    <div class="col-md-3">
+                                        <!-- <select class="form-control" name="" id="channel_id">
+                                           <option value="-1" selected>请选择</option>
+                                           
+                                        </select> -->
+                                        <select name="oldId">
+                                            <option value="">请选择</option>
+                                            	<#list list as item>
+                                                <option value="${item.id}">${item.username}</option>
+                                            </#list>
+                                        </select>
+                                        <!-- <div class="form-control-focus"> </div>
+                                        <span class="help-block">Some help goes here...</span> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group form-md-line-input has-success">
+                                    <label class="control-label col-md-3">照片记录</label>
+
+                                    <div class="col-md-9">
+                                        <input type="file" name="photoFile" id="photoFile">
+										<input type="file" name="photoFile" id="photoFile">
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-md-line-input has-success">
+                                    <label class="control-label col-md-3">视频记录</label>
+
+                                    <div class="col-md-9">
+                                        <input type="file" name="videoFile" id="videoFile">
+
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                                <label class="control-label col-md-3">请上传导入托盘的excel表</label>
+                                                <div class="col-md-8">
+                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="input-group input-large">
+                                                            <div class="form-control uneditable-input input-fixed input-large" data-trigger="fileinput">
+                                                                <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                                <span class="fileinput-filename"> </span>
+                                                            </div>
+                                                            <span class="input-group-addon btn default btn-file">
+                                                                <span class="fileinput-new"> 选择文件 </span>
+                                                                <span class="fileinput-exists"> 重新上传 </span>
+                                                                <input type="file" name="file" id="file"> </span>
+                                                            <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> 删除 </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                 </div> -->
+                                <div class="form-group form-md-line-input has-success">
+                                    <label class="col-md-3 control-label" for="form_control_1">记录时间</label>
+                                    <div class="col-md-3">
+                                        <input type="date" size="16" class="form-control" id="record_date"
+                                               name="record_time" placeholder="xxxx-xx-xx" >
+
+                                 </div>
+                                </div>
+
+                                <#list cList as category>
+                                    <div class="col-md-12">
+                                        <div class="portlet box green">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-gift"></i>
+                                                    <span class="caption-subject bold uppercase">${category.name}</span>
+                                                </div>
+
+                                            </div>
+                                            <#list category.types as type>
+                                                <div class="portlet-body form ">
+
+                                                    <div class="form-group form-md-radios">
+                                                        <label class="col-md-3 control-label">${type.typeName}</label>
+
+                                                        <div class="col-md-9">
+                                                            <div class="md-radio-list">
+                                                            	
+                                                                <#list type.assesItems as item>
+                                                                    <div class="md-radio">
+                                                                        <input type="radio" value="${item.id}" id="${item.id}"
+                                                                               name="a${type.id}"  checked="checked"
+                                                                               class="md-radiobtn" >
+                                                                        <label for="${item.id}">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>${item.description}(${item.grade}分)</label>
+                                                                    		
+                                                                    </div>
+                                                                </#list>
+                                                              
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </#list>
+                                        </div>
+                                    </div>
+                                </#list>
+								</div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-5 col-md-5">
+                                            <button type="submit" class="btn  btn-primary">
+                                                <i class="fa fa-check"></i> 提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END VALIDATION STATES-->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- BEGIN CONTENT -->
+</div>
+<#include "/common/bootAlert_message.html"/>
+<!-- END CONTENT -->
+
+
+
+
+<script
+        src="${base}/res/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"
+        type="text/javascript"></script>
+<script
+        src="${base}/res/assets/global/plugins/jquery-validation/js/localization/messages_zh.js"></script>
+<script
+        src="${base}/res/assets/global/plugins/jquery-validation/js/additional-methods.min.js"
+        type="text/javascript"></script>
+<script src="${base}/res/assets/js/record-validation.js"
+        type="text/javascript"></script>
+<script src="${base}/res/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"
+        type="text/javascript"></script>
+<script src="${base}/res/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
+        type="text/javascript"></script>
+<script src="${base}/res/assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
+<script src="${base}/res/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js"
+        type="text/javascript"></script>
+                      			
+			
+			<script src="${base}/res/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+<!-- END CONTAINER -->
+</body>
+
+</html>

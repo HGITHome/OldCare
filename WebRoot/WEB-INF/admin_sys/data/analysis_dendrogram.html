@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>关爱通</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<#include "/admin_sys/head.html"/>
+
+</head>
+<body>
+	class="page-header-fixed page-sidebar-closed-hide-logo
+	page-container-bg-solid page-md">
+	<!-- BEGIN HEADER -->
+	<#include "/admin_sys/top.html"/>
+	<!-- END HEADER -->
+	<!-- BEGIN HEADER & CONTENT DIVIDER -->
+	<div class="clearfix"></div>
+	<!-- END HEADER & CONTENT DIVIDER -->
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<#assign tb_15=true />
+		 <#assign tb_15_ul=true />
+		  <#assign tb_15_li_1=true /> 
+		  <#assign tb_15_arrow=true /> <#include
+		"/admin_sys/left.html"/>
+		<!-- END SIDEBAR -->
+		<div class="page-content-wrapper">
+			<!-- BEGIN CONTENT BODY -->
+			<div style="min-height:1022px" class="page-content">
+				<!-- page bar start -->
+				
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li><a href="javascript:;">数据管理</a> <i
+							class="fa fa-angle-right"></i></li>
+						<li><span>数据分析</span></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BEGIN SAMPLE TABLE PORTLET-->
+						<div class="portlet box blue">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-bar-chart"></i> 数据分析-柱状图</div>
+							</div>
+						</div>
+				<div><h2>总人数(人):${DataTotal}</h2></div>
+				
+				<div id="sex" title="性别分布 " style="width: 600px;height:400px; float:left;display: inline; "></div>
+				<div id="diploma" title="文化程度分布 " style="width: 600px;height:400px; float:right; display: inline;"></div>
+				<div id="religion" title="婚姻状态分布 " style="width: 600px;height:400px; float:left;display: inline; "></div>
+				<div id="marry_statu" title="婚姻状态分布 " style="width: 600px;height:400px; float:right;display: inline; "></div>
+				<div id="birthdayList" title="年龄分布 " style="width: 600px;height:400px; float:left;display: inline; "></div>
+				<div id="townList" title="地区分布 " style="width: 600px;height:400px; float:right;display: inline; "></div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+		<!-- BEGIN CONTENT -->
+		<!-- <#include "/common/bootAlert_message.html"/> -->
+	</div>
+
+	<script type="text/javascript"
+		src="${base}/thirdparty/charts/echarts.min.js"></script>
+	<script type="text/javascript">
+
+	var sexs = echarts.init(document.getElementById('sex'));
+	var diplomas = echarts.init(document.getElementById('diploma'));
+	var religions = echarts.init(document.getElementById('religion'));
+	var marry_status = echarts.init(document.getElementById('marry_statu'));
+	var birthdayLists = echarts.init(document.getElementById('birthdayList'));
+	var townLists = echarts.init(document.getElementById('townList'));
+   <#if map?exists>
+   <#list map?keys as key> 
+   <#assign minMap = map[key] />   
+   ${key} = {
+		    color: ['#3356DB'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : [
+		                <#if minMap?exists>
+                        <#list minMap as objs> 
+        	                '${objs[0]}',
+                        </#list>
+                        </#if>],
+		            axisTick: {
+		                alignWithLabel: true
+		            }
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'个数',
+		            type:'bar',
+		            barWidth: '20%',
+			data : [
+               <#if minMap?exists>
+               <#list minMap as objs> 
+                   ${objs[1]},
+               </#list>
+               </#if>]
+			        
+		} ]
+	};
+	</#list>
+</#if>     
+	sexs.setOption(Gender_Distribution);
+	diplomas.setOption(Diploma_Distribution);
+	religions.setOption(Religion_Distribution);
+	marry_status.setOption(Marry_status_Distribution);
+	birthdayLists.setOption(Age_Distribution);
+	townLists.setOption(Town_Distribution);
+</script>
+</body>
+
+</html>

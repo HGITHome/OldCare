@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="Summary" table="asses_score">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="id"><generator class="identity"/></id>
+		<property name="grade" column="score" type="integer" not-null="true" length="64"/>
+		<!-- <one-to-one name="category" class="AssesCategory" cascade="all" ></one-to-one>
+ -->	 <many-to-one name="category" class="AssesCategory" unique="true" column="category_id"/>   
+	</class>
+</hibernate-mapping>

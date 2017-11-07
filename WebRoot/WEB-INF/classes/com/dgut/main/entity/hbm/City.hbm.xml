@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="City" table="city">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="id"><generator class="identity"/></id>
+		<property name="name" column="cityName" type="string" not-null="true" length="10"/>
+		<property name="cacheCode" column="cacheCode" type="string" not-null="false" length="20"/>
+		
+		
+		<!-- <set name="towns" cascade="save-update,delete" inverse="true">
+             <key column="cityId"></key>
+             <one-to-many class="Town"/>
+         </set> -->
+         
+         <bag name="towns" order-by="id asc" inverse="true" cascade="save-update,delete">
+			 <key column="cityId"></key>
+             <one-to-many class="Town"/>
+		</bag>
+         
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="AssesType" table="asses_type" >
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="id"><generator class="identity"/></id>
+		<property name="typeName" column="typeName" type="string" not-null="true" length="10"/>
+		<set name="assesItems" cascade="all" inverse="true">
+             <key column="type_id"></key>
+             <one-to-many class="AssesItem"/>
+         </set>
+         <many-to-one name="category" column="category_id" cascade="all"></many-to-one>
+	</class>
+</hibernate-mapping>

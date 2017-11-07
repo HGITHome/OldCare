@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.5.5
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+<meta charset="utf-8" />
+<title>关爱通</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<#include "/admin_sys/head.html"/>
+
+
+</head>
+<!-- END HEAD -->
+
+<body
+	class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
+	<!-- BEGIN HEADER -->
+	<#include "/admin_sys/top.html"/>
+	<!-- END HEADER -->
+	<!-- BEGIN HEADER & CONTENT DIVIDER -->
+	<div class="clearfix"></div>
+	<!-- END HEADER & CONTENT DIVIDER -->
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<#assign tb_15=true />
+			<#assign tb_15_ul=true  />
+			<#assign tb_15_li_3=true />
+			<#assign tb_15_arrow=true />
+		<#include "/admin_sys/left.html"/>
+		<!-- END SIDEBAR -->
+		<div class="page-content-wrapper">
+			<!-- BEGIN CONTENT BODY -->
+			<div style="min-height:1022px" class="page-content">
+				<!-- page bar start -->
+				<div class="page-bar">
+
+					<ul class="page-breadcrumb">
+						<li><a href="javascript:;">数据管理</a> <i class="fa fa-angle-right"></i>
+						</li>
+						<li><span>数据分析</span></li>
+					</ul>
+				</div>
+
+				<div class="row ">
+					<div class="col-md-12">
+						<!-- BEGIN SAMPLE FORM PORTLET-->
+						
+						<!-- END SAMPLE FORM PORTLET-->
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BEGIN SAMPLE TABLE PORTLET-->
+					
+			
+					 <div class="portlet light portlet-fit portlet-datatable bordered" id="form_wizard_1">
+                                <div class="portlet-title">
+                       <h1>老人:${old_username}</h1>
+                                    <div class="actions">
+                                        <a class="dt-button buttons-print btn green  btn-outline"
+											href="v_list.do" tabindex="0"><span>返回</span> </a>
+                                    </div>
+                                </div>
+                         
+            
+					
+										
+						<div style="width:800px; margin-left:auto; margin-right:auto; color:White; height:400px">
+                 <div id="marry" style="width: 800px;height:400px; float:left;display: inline; "></div><br/>
+						 
+						<!-- END SAMPLE TABLE PORTLET-->
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- BEGIN CONTENT -->
+
+		<#include "/common/bootAlert_message.html"/>
+		<!-- END CONTENT -->
+<script type="text/javascript"
+		src="${base}/thirdparty/charts/linecharts.min.js"></script>
+
+<script type="text/javascript">
+	var marrys = echarts.init(document.getElementById('marry'));
+    option = {
+		    title: {
+		        text: '分数'
+		    },
+		    tooltip : {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:[ 
+                <#list categoryNameList as cKey>
+                      '${cKey}',
+               </#list>
+            ]
+		    },
+		    toolbox: {
+		        show : true,
+		        orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+		                                   // 'horizontal' ¦ 'vertical'
+		        x: 'right',                // 水平安放位置，默认为全图右对齐，可选为：
+		                                   // 'center' ¦ 'left' ¦ 'right'
+		                                   // ¦ {number}（x坐标，单位px）
+		        y: 'top',                  // 垂直安放位置，默认为全图顶端，可选为：
+		                                   // 'top' ¦ 'bottom' ¦ 'center'
+		                                   // ¦ {number}（y坐标，单位px）
+		        color : ['#1e90ff','#22bb22','#4b0082','#d2691e'],
+		        backgroundColor: 'rgba(0,0,0,0)', // 工具箱背景颜色
+		        borderColor: '#ccc',       // 工具箱边框颜色
+		        borderWidth: 0,            // 工具箱边框线宽，单位px，默认为0（无边框）
+		        padding: 5,                // 工具箱内边距，单位px，默认各方向内边距为5，
+		        showTitle: true,
+		        feature: {
+		            saveAsImage: {
+		            	show : true,
+		                title : '保存为图片',
+		                type : 'jpeg',
+		                lang : ['点击本地保存'] 
+		            }
+		           
+		        }
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            boundaryGap : false,
+		            data : [
+                        <#list RecordTimeList as Timekey>
+                        '${Timekey}',
+                        </#list>
+                          ]
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    magicType: {
+		        show : true,
+		        title : {
+		            tiled : '平铺',
+		        },
+
+		    },
+		    series : [
+
+                 <#list oldRecordMap?keys as ckey>
+                 <#assign list=oldRecordMap[ckey]>
+		        {
+		            name:'${ckey}',
+		            type:'line',
+		            stack: '总量',
+		         
+		            areaStyle: {normal: { color:'#EFF1F5'   }},
+		            data:[       
+		                  <#list list as key>
+                             ${key},
+                             </#list>
+                             ]
+		            
+		        },
+			    </#list>
+		    ]
+	        
+	      
+		};
+marrys.setOption(option);
+</script>
+
+		<script type="text/javascript">
+		function NowTime(){
+			var d = new Date();
+			var year = d.getFullYear();
+			var month = d.getMonth();
+			var day = d.getDate();
+			document.write(year);
+			 Console.WriteLine(year);
+			return NowTime = year + "-"+month + "-" +day;
+		}
+			function getTableForm() {
+				return document.getElementById('tableForm');
+			}
+			
+				$(function(){ 
+		
+				$("#townList").val("${town_id!}");
+			
+			
+		
+			});
+			
+		
+		</script>
+		
+		<!-- <script
+			src="${base}/res/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"
+			type="text/javascript"></script> -->
+		<script
+			src="${base}/res/assets/pages/scripts/table-datatables-managed.min.js"
+			type="text/javascript"></script>
+			<script src="${base}/thirdparty/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+			
+			
+	</div>
+	<!-- END CONTAINER -->
+</body>
+
+</html>

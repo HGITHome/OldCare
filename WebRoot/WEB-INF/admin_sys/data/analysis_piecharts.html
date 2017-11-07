@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>关爱通</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+<#include "/admin_sys/head.html"/>
+
+</head>
+<body>
+	class="page-header-fixed page-sidebar-closed-hide-logo
+	page-container-bg-solid page-md">
+	<!-- BEGIN HEADER -->
+	<#include "/admin_sys/top.html"/>
+	<!-- END HEADER -->
+	<!-- BEGIN HEADER & CONTENT DIVIDER -->
+	<div class="clearfix"></div>
+	<!-- END HEADER & CONTENT DIVIDER -->
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<#assign tb_15=true /> 
+		<#assign tb_15_ul=true /> 
+		<#assign tb_15_li_2=true /> 
+		<#assign tb_15_arrow=true /> <#include
+		"/admin_sys/left.html"/>
+		<!-- END SIDEBAR -->
+		<div class="page-content-wrapper">
+			<!-- BEGIN CONTENT BODY -->
+			<div style="min-height:1022px" class="page-content">
+				<!-- page bar start -->
+
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li><a href="jaavscript:;">数据管理</a> 
+						<i class="fa fa-angle-right"></i></li>
+						<li><span>数据分析</span></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BEGIN SAMPLE TABLE PORTLET-->
+						<div class="portlet box blue">
+							<div class="portlet-title">
+								<div class="caption"><i class="fa fa-pie-chart"></i>数据分析-饼状图</div>
+							</div>
+						</div>
+						<div>
+							<h2>总人数(人):${DataTotal}</h2>
+						</div>
+						<div id="sex"
+							style="width: 435px;height:400px; float:left;display: inline; "></div>
+						<div id="diploma"
+							style="width: 435px;height:400px; float:left; display: inline;"></div>
+						<div id="religion"
+							style="width: 435px;height:400px; float:left;display: inline; "></div>
+						<div id="marry_status"
+							style="width: 435px;height:400px; float:left;display: inline; "></div>
+						<div id="birthdayLists"
+							style="width: 435px;height:400px; float:left;display: inline; "></div>
+						<div id="townList" style="width: 400px;height:400px; float:left;display: inline; "></div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- BEGIN CONTENT -->
+		<!-- <#include "/common/bootAlert_message.html"/> -->
+	</div>
+
+	<script type="text/javascript"
+		src="${base}/thirdparty/charts/pie_echarts.min.js"></script>
+	<script type="text/javascript">
+	
+	var sexs = echarts.init(document.getElementById('sex'));
+	var diplomas = echarts.init(document.getElementById('diploma'));
+	var religions = echarts.init(document.getElementById('religion'));
+	var marry_status = echarts.init(document.getElementById('marry_status'));
+	var birthdayLists = echarts.init(document.getElementById('birthdayLists'));
+	var townLists = echarts.init(document.getElementById('townList'));
+   <#if map?exists>
+   <#list map?keys as key> 
+   <#assign minMap = map[key] />   
+${key} = {
+		title : {
+	        text: '${key}',
+	        subtext: '',
+	        x:'center'
+	    },
+	    tooltip : {
+	        trigger: 'item',
+	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+	    },
+	    legend: {
+	        orient: 'vertical',
+	        left: 'left',
+	    },
+	    series : [
+	        {
+	            name: '访问来源',
+	            type: 'pie',
+	            radius : '55%',
+	            center: ['50%', '60%'],
+	            data:[
+             <#if minMap?exists>
+                 <#list minMap as objs> 
+                 {value: ${objs[1]},name:'${objs[0]}'},
+             </#list>
+             </#if>
+	            ],
+	            itemStyle: {
+	                emphasis: {
+	                    shadowBlur: 10,
+	                    shadowOffsetX: 0,
+	                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+	                }
+	            }
+	        }
+	    ]
+	};
+	</#list>
+</#if>     
+sexs.setOption(Gender_Distribution);
+diplomas.setOption(Diploma_Distribution);
+religions.setOption(Religion_Distribution);
+marry_status.setOption(Marry_status_Distribution);
+birthdayLists.setOption(Age_Distribution);
+townLists.setOption(Town_Distribution);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="OldCare"
+  id="myeclipse.1462328218444"
+  context-root="/OldCare"
+  j2ee-spec="6.0"
+  archive="OldCare.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

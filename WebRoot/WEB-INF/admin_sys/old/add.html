@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.5.5
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>关爱通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="${base}/res/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="${base}/res/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="${base}/res/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <#include "/admin_sys/head.html"/>
+</head>
+<!-- END HEAD -->
+
+<body
+        class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-md">
+<!-- BEGIN HEADER -->
+<#include "/admin_sys/top.html"/>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"></div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <#assign tb_12=true />
+    <#assign tb_12_ul=true  />
+    <#assign tb_12_li_1=true />
+    <#assign tb_12_arrow=true />
+    <#include "/admin_sys/left.html"/>
+    <!-- END SIDEBAR -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <a href="v_list.do">老人管理</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>录入老人信息</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light bordered" id="form_wizard_1">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class=" icon-layers font-green"></i>
+                                        <span class="caption-subject font-green bold uppercase"> 录入老人信息中 -
+                                            <span class="step-title"> STEP 1 of 4 </span>
+                                        </span>
+                            </div>
+                            <div class="actions">
+                            	
+									<a class="dt-button buttons-print btn green  btn-outline"
+											href="v_list.do" tabindex="0"><span>返回</span> </a>
+								</div>
+
+                        </div>
+                        <div class="portlet-body form">
+                            <form class="form-horizontal" action="o_save.do" id="submit_form"  enctype="multipart/form-data" method="POST">
+                                <div class="form-wizard">
+                                    <div class="form-body">
+                                        <ul class="nav nav-pills nav-justified steps">
+                                            <li>
+                                                <a href="#tab1" data-toggle="tab" class="step">
+                                                    <span class="number"> 1 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> 基本信息 </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab2" data-toggle="tab" class="step">
+                                                    <span class="number"> 2 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> 收入信息 </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab3" data-toggle="tab" class="step active">
+                                                    <span class="number"> 3 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> 疾病表现 </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab4" data-toggle="tab" class="step active">
+                                                    <span class="number"> 4 </span>
+                                                            <span class="desc">
+                                                                <i class="fa fa-check"></i> 确认信息 </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                        <div id="bar" class="progress progress-striped" role="progressbar">
+                                            <div class="progress-bar progress-bar-success"> </div>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div class="alert alert-danger display-none">
+                                                <button class="close" data-dismiss="alert"></button> 资料填写不完整，请填写好再提交. </div>
+                                            <div class="alert alert-success display-none">
+                                                <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                            <div class="tab-pane active" id="tab1">
+                                                <h3 class="block">填写个人基本信息</h3>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">姓名
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" name="username" />
+
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">相片
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="file" class="form-control" name="photo"/>
+														<div id="form_file_error"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">性别
+                                                        <span class="required"> * </span>
+                                                    </label>
+
+                                                    <div class="col-md-4">
+                                                        <div class="md-radio-inline">
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="1" id="oBtn"
+                                                                       name="sex"  data-title="男"  
+                                                                       class="md-radiobtn">
+                                                                <label for="oBtn">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>男</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="0" id="fBtn"
+                                                                       name="sex"  data-title="女"
+                                                                       class="md-radiobtn">
+                                                                <label for="fBtn">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>女</label>
+                                                            </div>
+
+                                                        </div>
+                                                        <div id="form_sex_error"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">出生年月
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" name="age" id="age" placeholder="xxxx-xx-xx" />
+
+                                                    </div>
+
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">所属镇区
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">        
+                                                    	
+                                                         
+                                                       
+                                                        <select name="town" id="townList" class="form-control input-small">
+                                                            <option value="">--请选择镇区--</option>
+                                                           	<#list townList as town>
+                                                            <option value="${town.id}" data-title="${town.townName}">${town.townName}</option>
+                                                            </#list>
+                                                        </select>
+                                                    	<div id="form_town_error"></div>
+														 
+                                                    </div >
+                                                   
+                                                   <!--  <div class="col-md-3">
+                                                    	
+                                                    </div> -->
+
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">文化水平
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <!-- <select name="diploma" id="diploma_list" class="form-control">
+                                                            <option value="A1.1">文盲</option>
+                                                            <option value="A1.2">小学</option>
+                                                            <option value="A1.3">初中</option>
+                                                            <option value="A1.4">高中/技校/中专</option>
+                                                            <option value="A1.5">大专以上</option>
+                                                            <option value="A1.6">不详</option>
+                                                        </select> -->
+                                                        <div class="md-radio-inline">
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.1" id="sBtn1"  
+                                                                       name="diploma"  data-title="文盲"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>文盲</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.2" id="sBtn2"
+                                                                       name="diploma" data-title="小学"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>小学</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.3" id="sBtn3"
+                                                                       name="diploma" data-title="初中"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>初中</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.4" id="sBtn4"
+                                                                       name="diploma" data-title="高中/技校/中专"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>高中/技校/中专</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.5" id="sBtn5"
+                                                                       name="diploma" data-title="大专以上"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>大专以上</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A1.6" id="sBtn6"
+                                                                       name="diploma" data-title="不详"
+                                                                       class="md-radiobtn">
+                                                                <label for="sBtn6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>不详</label>
+                                                            </div>
+															 <div id="form_diploma_error"></div>
+                                                        </div>
+                                                    </div>
+                                               		
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">宗教信仰
+                                                        <span class="required"> * </span>
+                                                    </label>
+
+                                                    <div class="col-md-4">
+                                                        <div class="md-radio-inline">
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="1" id="rBtn"
+                                                                       name="religion"  data-title="有"  
+                                                                       class="md-radiobtn">
+                                                                <label for="rBtn">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>有</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="0" id="rBtn1"
+                                                                       name="religion" data-title="无"
+                                                                       class="md-radiobtn">
+                                                                <label for="rBtn1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>无</label>
+                                                            </div>
+																 <div id="form_religion_error"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">婚姻状况
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <span class="required"> * </span>
+                                                    <div class="col-md-6">
+                                                        <!-- <select name="marriage" id="marriage_list" class="form-control">
+                                                            <option value="A2.1">已婚</option>
+                                                            <option value="A2.2">丧偶</option>
+                                                            <option value="A2.3">离婚</option>
+                                                            <option value="A2.4">未婚</option>
+                                                            <option value="A2.5">未说明的婚姻状况</option>
+
+                                                        </select> -->
+
+                                                        <div class="md-radio-inline">
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A2.1" id="mBtn1"
+                                                                       name="marriage"  data-title="已婚"  
+                                                                       class="md-radiobtn">
+                                                                <label for="mBtn1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>已婚</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A2.2" id="mBtn2"
+                                                                       name="marriage" data-title="丧偶"
+                                                                       class="md-radiobtn">
+                                                                <label for="mBtn2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>丧偶</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A2.3" id="mBtn3"
+                                                                       name="marriage" data-title="离婚"
+                                                                       class="md-radiobtn">
+                                                                <label for="mBtn3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>离婚</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A2.4" id="mBtn4"
+                                                                       name="marriage" data-title="未婚"
+                                                                       class="md-radiobtn">
+                                                                <label for="mBtn4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>未婚</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A2.5" id="mBtn5"
+                                                                       name="marriage" data-title="未说明的婚姻状况"
+                                                                       class="md-radiobtn">
+                                                                <label for="mBtn5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>未说明的婚姻状况</label>
+                                                            </div>
+															 <div id="form_marriage_error"></div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class="col-md-3 control-label" >居住情况
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_1" class="md-check" value="A3.1" name="living[]" data-title="独居"  >
+                                                                <label for="checkbox1_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>独居 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_2" class="md-check" value="A3.2" name="living[]" data-title="与配偶居住"  >
+                                                                <label for="checkbox1_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与配偶居住 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_3" class="md-check" value="A3.3" name="living[]" data-title="与子女居住">
+                                                                <label for="checkbox1_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与子女居住</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_4" class="md-check" value="A3.4" name="living[]" data-title="与父母居住">
+                                                                <label for="checkbox1_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与父母居住
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_5" class="md-check" value="A3.5" name="living[]" data-title="与兄弟姐妹居住">
+                                                                <label for="checkbox1_5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与兄弟姐妹居住</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_6" class="md-check" value="A3.6" name="living[]" data-title="与其他亲属居住">
+                                                                <label for="checkbox1_6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与其他亲属居住</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_7" class="md-check" value="A3.7" name="living[]" data-title="与非亲属关系的人居住">
+                                                                <label for="checkbox1_7">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>与非亲属关系的人居住</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox1_8" class="md-check" value="A3.8" name="living[]" data-title="养老机构">
+                                                                <label for="checkbox1_8">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>养老机构</label>
+                                                            </div>
+                                                            <div id="form_living_error"> </div>
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="tab2">
+                                                <h3 class="block">收入信息</h3>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">年收入(元)
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" name="income" value="123"/>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label class="col-md-3 control-label" >经济来源
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox2_1" class="md-check" value="A5.1" name="incomeways[]" data-title="退休金/养老金">
+                                                                <label for="checkbox2_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>退休金/养老金 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox2_2" class="md-check" value="A5.2" name="incomeways[]" data-title="子女补贴"  >
+                                                                <label for="checkbox2_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>子女补贴 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox2_3" class="md-check" value="A5.3" name="incomeways[]" data-title="亲友资助"  >
+                                                                <label for="checkbox2_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>亲友资助</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox2_4" class="md-check" data-title="其他补贴:" value="A5.4" name="incomeways[]">
+                                                                <label for="checkbox2_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>其他补贴
+                                                                    <input type="text" class=" form-md-line-input" name="income_others" id="income_others" disabled="true" />
+                                                                   
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div id="form_incomeways_error"> </div>
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" >医疗费用支付方式
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_1" class="md-check" name="payways[]" value="A4.1" data-title="城镇职工基本医疗保险">
+                                                                <label for="checkbox3_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>城镇职工基本医疗保险 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_2" class="md-check" name="payways[]" value="A4.2" data-title="城镇居民基本医疗保险"  >
+                                                                <label for="checkbox3_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>城镇居民基本医疗保险 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_3" class="md-check" name="payways[]" value="A4.3" data-title="新型农村合作医疗 ">
+                                                                <label for="checkbox3_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>新型农村合作医疗 </label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_4" class="md-check" name="payways[]" value="A4.4" data-title="贫困救助 "  >
+                                                                <label for="checkbox3_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>贫困救助
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_5" class="md-check" name="payways[]" value="A4.5" data-title="商业医疗保险">
+                                                                <label for="checkbox3_5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>商业医疗保险
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_6" class="md-check" name="payways[]" value="A4.6" data-title=" ">
+                                                                <label for="checkbox3_6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>全公费
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_7" class="md-check" name="payways[]" value="A4.7" data-title="全自费">
+                                                                <label for="checkbox3_7">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>全自费
+                                                                    <!--  <input type="text" class="form-control" placeholder="" name="name"> -->
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox3_8" class="md-check" name="payways[]" value="A4.8" data-title="其他支付方式:">
+                                                                <label for="checkbox3_8">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>其他
+                                                                   <input type="text" class=" form-md-line-input" name="pay_others" id="pay_others" disabled="true" placeholder="请输入其他支付方式" />
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div id="form_payways_error"> </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="tab3">
+                                                <h3 class="block">疾病表现</h3>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">是否有痴呆表现
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    
+                                                    <div class="col-md-6">
+
+
+                                                        <div class="md-radio-inline">
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A6.1" id="oBtn1"  
+                                                                       name="oafish"  data-title="无痴呆表现"
+                                                                       class="md-radiobtn">
+                                                                <label for="oBtn1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>无痴呆表现</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A6.2" id="oBtn2" data-title="轻度痴呆" 
+                                                                       name="oafish"
+                                                                       class="md-radiobtn">
+                                                                <label for="oBtn2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>轻度痴呆</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A6.3" id="oBtn3"
+                                                                       name="oafish" data-title="中度痴呆"
+                                                                       class="md-radiobtn">
+                                                                <label for="oBtn3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>中度痴呆</label>
+                                                            </div>
+
+                                                            <div class="md-radio">
+                                                                <input type="radio" value="A6.4" id="oBtn4"
+                                                                       name="oafish" data-title="重度痴呆"
+                                                                       class="md-radiobtn">
+                                                                <label for="oBtn4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>重度痴呆</label>
+                                                            </div>
+															<div id="form_oafish_error"></div>
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" >是否有精神病表现
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    <div class="col-md-9">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_1" class="md-check" name="insanity[]" value="A7.1" data-title="无精神病表现">
+                                                                <label for="checkbox4_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>无精神病表现 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_2" class="md-check" name="insanity[]" value="A7.2" data-title="精神分裂症"  >
+                                                                <label for="checkbox4_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>精神分裂症 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_3" class="md-check" name="insanity[]" value="A7.3" data-title="双向情感障碍"  >
+                                                                <label for="checkbox4_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>双向情感障碍 </label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_4" class="md-check" name="insanity[]" value="A7.4" data-title="偏执型情感障碍">
+                                                                <label for="checkbox4_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>偏执型情感障碍
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_5" class="md-check" name="insanity[]" value="A7.5" data-title="分裂情感性精神障碍">
+                                                                <label for="checkbox4_5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>分裂情感性精神障碍
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_6" class="md-check" name="insanity[]" value="A7.6" data-title="癫痫所致精神障碍">
+                                                                <label for="checkbox4_6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>癫痫所致精神障碍
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_7" class="md-check" name="insanity[]" value="A7.7" data-title="精神发育迟滞伴发精神障碍"  >
+                                                                <label for=checkbox4_7>
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>精神发育迟滞伴发精神障碍
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox4_8" class="md-check" name="insanity[]" value="A7.8" data-title="其他表现:">
+                                                                <label for="checkbox4_8">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>其他
+																	<input type="text" class=" form-md-line-input" name="insanity_others" id="insanity_others" disabled="true" placeholder="请输入" />
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div id="form_insanity_error"> </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">患过何种疾病
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_1" class="md-check" name="illness[]" value="A8.1" data-title="未明确诊断患有疾病"  >
+                                                                <label for="checkbox5_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>未明确诊断患有疾病  </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_2" class="md-check" name="illness[]" value="A8.2" data-title="高血压">
+                                                                <label for="checkbox5_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>高血压 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_3" class="md-check" name="illness[]" value="A8.3" data-title="冠心病">
+                                                                <label for="checkbox5_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>冠心病</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_4" class="md-check" name="illness[]" value="A8.4" data-title="心律不齐">
+                                                                <label for="checkbox5_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>心律不齐
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_5" class="md-check" name="illness[]" value="A8.5" data-title="糖尿病">
+                                                                <label for="checkbox5_5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>糖尿病
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_6" class="md-check" name="illness[]" value="A8.6" data-title="消化系统疾病">
+                                                                <label for="checkbox5_6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>消化系统疾病
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_7" class="md-check" name="illness[]" value="A8.7" data-title="骨、关节疾病">
+                                                                <label for=checkbox5_7>
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>骨、关节疾病
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_8" class="md-check" name="illness[]" value="A8.8" data-title="高血脂">
+                                                                <label for="checkbox5_8">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>高血脂
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_9" class="md-check" name="illness[]" value="A8.9" data-title="脑血管疾病">
+                                                                <label for="checkbox5_9">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>脑血管疾病
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_10" class="md-check" name="illness[]" value="A8.10" data-title="癌症">
+                                                                <label for="checkbox5_10">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>癌症
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_11" class="md-check" name="illness[]" value="A8.11" data-title="慢性肾脏疾病"  >
+                                                                <label for="checkbox5_11">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>慢性肾脏疾病
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_12" class="md-check" name="illness[]" value="A8.12" data-title="贫血">
+                                                                <label for="checkbox5_12">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>贫血
+
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox5_13" class="md-check" name="illness[]" value="A8.13" data-title="其他疾病:">
+                                                                <label for="checkbox5_13">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>其他疾病
+																	<input type="text" class=" form-md-line-input" name="illness_others" id="illness_others" disabled="true" placeholder="请输入" />
+
+                                                                </label>
+
+                                                            </div>
+
+
+                                                            <div id="form_illness_error"> </div>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">近30天内意外事件
+                                                        <span class="required"> * </span>
+                                                    </label>
+                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="md-checkbox-inline">
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_1" class="md-check" name="accident[]" value="A9.1.1" data-title="无跌倒">
+                                                                <label for="checkbox6_1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>未跌倒  </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_2" class="md-check" name="accident[]" value="A9.1.2" data-title="跌倒一次">
+                                                                <label for="checkbox6_2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>跌倒发生过一次 </label>
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_3" class="md-check" name="accident[]" value="A9.1.3" data-title="跌倒两次"  >
+                                                                <label for="checkbox6_3">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>跌倒发生过两次</label>
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_4" class="md-check" name="accident[]" value="A9.1.4" data-title="跌倒三次及以上">
+                                                                <label for="checkbox6_4">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>跌倒发生过三次及以上
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_5" class="md-check" name="accident[]" value="A9.2.1" data-title="无走失">
+                                                                <label for="checkbox6_5">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>未走失
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_6" class="md-check" name="accident[]" value="A9.2.2" data-title="走失一次">
+                                                                <label for="checkbox6_6">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>走失发生过一次
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_7" class="md-check" name="accident[]" value="A9.2.3" data-title="走失两次">
+                                                                <label for=checkbox6_7>
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>走失发生过两次
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_8" class="md-check" name="accident[]" value="A9.2.4" data-title="走失三次及以上">
+                                                                <label for="checkbox6_8">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>走失发生过三次及以上
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_9" class="md-check" name="accident[]" value="A9.3.1" data-title="无噎食">
+                                                                <label for="checkbox6_9">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>无噎食
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_10" class="md-check" name="accident[]" value="A9.3.2" data-title="噎食一次">
+                                                                <label for="checkbox6_10">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>噎食发生过一次
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_11" class="md-check" name="accident[]" value="A9.3.3" data-title="噎食两次">
+                                                                <label for="checkbox6_11">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>噎食发生过两次
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_12" class="md-check" name="accident[]" value="A9.3.4" data-title="噎食发生过三次及三次以上">
+                                                                <label for="checkbox6_12">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>噎食发生过三次及三次以上
+
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_13" class="md-check" name="accident[]" value="A9.4.1" data-title="无自杀">
+                                                                <label for="checkbox6_13">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>无自杀
+
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_14" class="md-check" name="accident[]" value="A9.4.3" data-title="自杀一次">
+                                                                <label for="checkbox6_14">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>自杀发生一次
+
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_15" class="md-check" name="accident[]" value="A9.4.3" data-title="自杀两次">
+                                                                <label for="checkbox6_15">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>自杀发生两次
+
+
+                                                                </label>
+
+                                                            </div>
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_16" class="md-check" name="accident[]" value="A9.4.4" data-title="自杀三次及以上">
+                                                                <label for="checkbox6_16">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>自杀发生三次及三次以上
+
+
+                                                                </label>
+
+                                                            </div>
+
+                                                            <div class="md-checkbox">
+                                                                <input type="checkbox" id="checkbox6_17" class="md-check" name="accident[]" value="A9.5" data-title="其他意外:">
+                                                                <label for="checkbox6_17">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>其他应记录事件
+																	<input type="text" class=" form-md-line-input" name="accident_others" id="accident_others" disabled="true" placeholder="请输入" />
+
+                                                                </label>
+
+                                                            </div>
+
+
+                                                            <div id="form_accident_error"> </div>
+
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane" id="tab4">
+                                                <h3 class="block">确认信息</h3>
+                                                <h4 class="form-section">基本信息</h4>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">老人姓名:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="username"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">性别:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="sex"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">所属镇区</label>
+                                                    <div class="col-md-4">
+                                                    	
+                                                        <p class="form-control-static" data-display="town"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">出生年月</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="age"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">文化水平:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="diploma"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">宗教信仰:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="religion"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">婚姻状况:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="marriage"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">居住情况:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="living[]"> </p>
+                                                    </div>
+                                                </div>
+                                                <h4 class="form-section">收入信息</h4>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">年收入</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="income"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">经济来源:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="incomeways[]"> </p><br>
+                                                        <!-- <p class="form-control-static" data-display="income_others"></p> -->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">医疗费用支付方式:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="payways[]"> </p><br>
+                                                       <!--  <p class="form-control-static" data-display="pay_others"></p> -->
+                                                    </div>
+                                                </div>
+                                                
+                                                <h4 class="form-section">疾病表现</h4>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">是否有痴呆表现:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="oafish"> </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">是否有精神病表现:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="insanity[]"> </p><br>
+                                                        <!-- <p class="form-control-static" data-display="insanity_others"></p> -->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">患过何种疾病:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="illness[]"> </p><br>
+                                                        <!--  <p class="form-control-static" data-display="illness_others"></p> -->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">近30天发生的意外:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="accident[]"> </p><br>
+                                                       <!-- <p class="form-control-static" data-display="accident_others"> </p> -->
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    
+                                   
+                                </div>
+                               
+                                 <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                        	<a href="javascript:;" class="btn default button-previous">
+                                                    <i class="fa fa-angle-left"></i> 返回 </a>
+                                            <a href="javascript:;" class="btn btn-outline green button-next"> 下一步
+                                                    <i class="fa fa-angle-right"></i>
+                                            </a>
+                                            <button type="submit" class="btn green button-submit">
+                                                <i class="fa fa-check"></i> 提交
+                                            </button>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- BEGIN CONTENT -->
+
+
+		
+            <#include "/common/bootAlert_message.html"/>
+            <!-- END CONTENT -->
+            <script src="${base}/res/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+            <script src="${base}/res/assets/global/plugins/jquery-validation/js/localization/messages_zh.js"></script>
+            <script src="${base}/res/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+            <script src="${base}/res/assets/js/old_validation.js" type="text/javascript"></script>
+
+            <script src="${base}/res/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+            <script src="${base}/res/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+            <script src="${base}/res/assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
+
+        </div>
+        <!-- END CONTAINER -->
+   </div>
+   </div>
+</body>
+
+</html>

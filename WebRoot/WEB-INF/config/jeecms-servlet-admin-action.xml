@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-lazy-init="true">
+	<bean id="adminLoginAct" class="com.dgut.main.action.AdminLoginAct"/>
+	<bean id="welcomeAct" class="com.dgut.main.action.WelcomeAct"/>
+	<bean id="frameAct" class="com.dgut.main.action.FrameAct"/>
+	<bean id="personalAct" class="com.dgut.main.action.PersonalAct"/>
+	<bean id="cityAct" class="com.dgut.main.action.CityAct"/>
+	<bean id="roleAct" class="com.dgut.main.action.RoleAct"/>
+	<bean id="firstTypeAct" class="com.dgut.main.action.main.FirstTypeAct"/>	
+	<bean id="oldAct" class="com.dgut.main.action.main.OldAct"/>
+	<bean id="recordAct" class="com.dgut.main.action.main.RecordAct"/>
+	<bean id="cmsLogAct" class="com.dgut.main.action.CmsLogAct"/>
+	<bean id="cmsAdminGlobalAct" class="com.dgut.main.action.CmsAdminGlobalAct"/>
+	<bean id="dateAct" class="com.dgut.main.action.assist.DataAct"/>
+	<bean id="dataAnalysisAct" class="com.dgut.main.action.main.DataAnalysisAct"/>
+	<bean id="addItemsAct" class="com.dgut.main.action.main.AddItemsAct"/>
+	<!-- <bean id="uploadImageAct" class="com.dgut.main.action.assist.ImageUploadAct"/> -->
+	<!-- <bean id="casLoginAct" class="com.dgut.main.action.member.CasLoginAct"/>
+	<bean id="fckAct" class="com.dgut.main.action.admin.FckAct"/>
+	<bean id="imageUploadAct" class="com.dgut.main.action.admin.ImageUploadAct"/>
+	<bean id="imageCutAct" class="com.dgut.main.action.admin.ImageCutAct"/>
+	
+	<bean id="luceneContentAct" class="com.dgut.main.lucene.LuceneContentAct"/>
+	<bean id="staticAct" class="com.dgut.main.staticpage.StaticAct"/>
+
+	<bean id="ftpAct" class="com.dgut.main.action.admin.main.FtpAct"/>
+	<bean id="unifiedUserAct" class="com.dgut.main.action.admin.main.UnifiedUserAct"/>
+	<bean id="cmsSiteAct" class="com.dgut.main.action.admin.main.CmsSiteAct"/>
+	<bean id="cmsSiteConfigAct" class="com.dgut.main.action.admin.main.CmsSiteConfigAct"/>
+	<bean id="cmsConfigAct" class="com.dgut.main.action.admin.main.CmsConfigAct"/>
+	<bean id="cmsAdminGlobalAct" class="com.dgut.main.action.admin.main.CmsAdminGlobalAct"/>
+	<bean id="cmsAdminLocalAct" class="com.dgut.main.action.admin.main.CmsAdminLocalAct"/>
+	<bean id="cmsMemberAct" class="com.dgut.main.action.admin.main.CmsMemberAct"/>
+	<bean id="cmsModelAct" class="com.dgut.main.action.admin.main.CmsModelAct"/>
+	<bean id="cmsModelItemAct" class="com.dgut.main.action.admin.main.CmsModelItemAct"/>
+	<bean id="channelAct" class="com.dgut.main.action.admin.main.ChannelAct"/>
+	<bean id="contentAct" class="com.dgut.main.action.admin.main.ContentAct"/>
+	<bean id="contentTypeAct" class="com.dgut.main.action.admin.main.ContentTypeAct"/>
+	<bean id="contentTagAct" class="com.dgut.main.action.admin.main.ContentTagAct"/>
+	<bean id="cmsTopicAct" class="com.dgut.main.action.admin.main.CmsTopicAct"/>
+	<bean id="cmsGroupAct" class="com.dgut.main.action.admin.main.CmsGroupAct"/>
+	<bean id="cmsRoleAct" class="com.dgut.main.action.admin.main.CmsRoleAct"/>	
+	<bean id="cmsLogAct" class="com.dgut.main.action.admin.main.CmsLogAct"/>	
+	
+	<bean id="templateAct" class="com.dgut.main.action.admin.assist.TemplateAct">
+		<property name="tplManager" ref="tplManager"/>
+	</bean>
+	<bean id="resourceAct" class="com.dgut.main.action.admin.assist.ResourceAct"/>
+	<bean id="cmsAcquisitionAct" class="com.dgut.main.action.admin.assist.CmsAcquisitionAct"/>
+	<bean id="cmsCommentAct" class="com.dgut.main.action.admin.assist.CmsCommentAct"/>
+	<bean id="cmsKeywordAct" class="com.dgut.main.action.admin.assist.CmsKeywordAct"/>
+	<bean id="cmsSensitivityAct" class="com.dgut.main.action.admin.assist.CmsSensitivityAct"/>
+	<bean id="cmsGuestbookCtgAct" class="com.dgut.main.action.admin.assist.CmsGuestbookCtgAct"/>
+	<bean id="cmsGuestbookAct" class="com.dgut.main.action.admin.assist.CmsGuestbookAct"/>
+	<bean id="cmsVoteTopicAct" class="com.dgut.main.action.admin.assist.CmsVoteTopicAct"/>
+	<bean id="cmsFriendlinkCtgAct" class="com.dgut.main.action.admin.assist.CmsFriendlinkCtgAct"/>
+	<bean id="cmsFriendlinkAct" class="com.dgut.main.action.admin.assist.CmsFriendlinkAct"/>
+	<bean id="cmsAdvertisingSpaceAct" class="com.dgut.main.action.admin.assist.CmsAdvertisingSpaceAct"/>
+	<bean id="cmsAdvertisingAct" class="com.dgut.main.action.admin.assist.CmsAdvertisingAct"/>
+	
+	<bean id="cmsMessageAct" class="com.dgut.main.action.admin.assist.CmsMessageAct"/>
+	<bean id="dataAct" class="com.dgut.main.action.admin.assist.DataAct"/>
+	
+	<bean id="cmsStatististAct" class="com.dgut.main.statistic.CmsStatisticAct"/>
+	<bean id="cmsFileAct" class="com.dgut.main.action.admin.assist.CmsFileAct"/>
+	<bean id="cmsFireWallConfigAct" class="com.dgut.main.action.admin.assist.CmsFireWallConfigAct"/>
+	<bean id="workloadStatisticAct" class="com.dgut.main.statistic.workload.CmsWorkLoadStatisticAct"/> -->
+	
+</beans>

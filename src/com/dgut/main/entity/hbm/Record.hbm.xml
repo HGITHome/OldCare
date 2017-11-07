@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dgut.main.entity">
+	<class name="Record" table="record">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="integer" column="id"><generator class="identity"/></id>
+		<property name="record_time" column="record_time" type="date" not-null="true" />
+		
+		<!-- <property name="photoUrl" column="photourl" type="string" not-null="false" length="200"/> -->
+		<property name="video_url" column="video_url" type="string" not-null="false" length="200"/>
+		<property name="video_mini" column="video_mini" type="string" not-null="false" length="200"/>
+		<!-- <property name="type" column="record_type" type="integer" not-null="true" length="11"/> -->
+		<!-- <property name="old_id" column="old_id" type="integer" not-null="true" /> -->
+		<!-- <many-to-one name="score"  column="score_id" class="Score" cascade="all" unique="true"/> -->
+		<many-to-one name="old" column="old_id" class="Old" not-null="true"></many-to-one>
+		<many-to-one name="enroller" column="enroll_id" class="Admin" not-null="false"></many-to-one>
+		<set name="scores" table="asses_record" cascade="all" inverse="true">
+			<cache usage="read-write"/>
+			<key column="record_id" not-null="true"/>
+			<many-to-many class="AssesItem" unique="true" column="item_id" ></many-to-many>
+		</set>
+		
+		<set name="summary" table="asses_category" cascade="all" >
+			<cache usage="read-write"/>
+			<key column="record_id" not-null="true"/>
+			<one-to-many class="Summary"/>
+
+		</set>
+		
+		<set name="photos" cascade="all" inverse="true" >
+              <cache usage="read-write"/>
+             <key column="record_id"></key>
+             <one-to-many class="RecordPicture"/>
+         </set>
+         
+         <!-- <set name="photos" table="record_pricture">
+			<cache usage="read-write"/>
+			<key column="record_id" not-null="true"/>
+			<element column="photoUrl" type="string" length="100" not-null="true"/>
+		</set> -->
+         
+         
+	</class>
+</hibernate-mapping>
